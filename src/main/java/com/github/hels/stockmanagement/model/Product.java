@@ -1,11 +1,9 @@
 package com.github.hels.stockmanagement.model;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @AllArgsConstructor
 @Builder
@@ -13,15 +11,14 @@ import java.util.Objects;
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity
-
+@Entity(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "uuid", nullable = false, length = 36, unique = true)
-    private Long uuid;
+    private String uuid;
     @Column(name = "name", nullable = false, length = 60)
     private String name;
     @Column(name = "description", nullable = false)
@@ -34,17 +31,7 @@ public class Product {
     private LocalDateTime updatedAt;
     @Column(name = "deleted_at", nullable = false)
     private LocalDateTime deletedAt;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Product product = (Product) o;
-        return id != null && Objects.equals(id, product.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

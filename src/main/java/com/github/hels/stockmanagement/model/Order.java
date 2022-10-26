@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity
-@Table(name = "order")
+@Entity(name = "order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +23,7 @@ public class Order {
     @JoinColumn(name = "product_id", nullable = false)
     private Product productId;
     @Column(name = "uuid", nullable = false, length = 36, unique = true)
-    private Long uuid;
+    private String uuid;
     @Column(name = "purchase_price", nullable = false)
     private Double purchasePrice;
     @Column(name = "tax")
@@ -36,7 +35,7 @@ public class Order {
     private OrderStatus orderStatus;
     @Column(name = "sold_at", nullable = false)
     private LocalDateTime soldAt;
-    @Column(name = "Created_at", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createAt;
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
