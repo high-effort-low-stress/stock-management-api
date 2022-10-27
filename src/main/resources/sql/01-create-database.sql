@@ -35,10 +35,10 @@ CREATE TABLE `stock_management`.`category` (
     `id`          INT,
     `uuid`        VARCHAR(36) NOT NULL UNIQUE,
     `name`       VARCHAR(40) NOT NULL,
-    `category_id`  int REFERENCES category(id),
+    `parent_id`  int REFERENCES category(id),
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_category_category`
-        FOREIGN KEY (`category_id`)
+        FOREIGN KEY (`parent_id`)
         REFERENCES `stock_management`.`category` (`id`)
 );
 
