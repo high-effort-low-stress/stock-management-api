@@ -9,7 +9,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-
 @Entity(name = "category")
 public class Category {
     @Id

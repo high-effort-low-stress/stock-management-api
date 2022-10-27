@@ -9,7 +9,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-
 @Entity(name = "product")
 public class Product {
     @Id
@@ -31,6 +30,6 @@ public class Product {
     @Column(name = "deleted_at", nullable = false)
     private LocalDateTime deletedAt;
     @ManyToMany
-    @JoinColumn(name = "parent_id")
+    @JoinColumn(name = "category_id")
     private Set<Category> categories;
 }
