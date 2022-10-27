@@ -1,18 +1,16 @@
 package com.github.hels.stockmanagement.model;
 
 import com.github.hels.stockmanagement.enums.OrderStatus;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
-@AllArgsConstructor
-@Builder
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
+
 @Entity(name = "order")
 public class Order {
     @Id
@@ -32,11 +30,11 @@ public class Order {
     private Double resalePrice;
     @Enumerated
     @Column(name = "status", nullable = false)
-    private OrderStatus orderStatus;
+    private OrderStatus status;
     @Column(name = "sold_at", nullable = false)
     private LocalDateTime soldAt;
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 

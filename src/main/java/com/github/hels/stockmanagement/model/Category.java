@@ -1,17 +1,15 @@
 package com.github.hels.stockmanagement.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
 
-@AllArgsConstructor
-@Builder
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
+
 @Entity(name = "category")
 public class Category {
     @Id
@@ -24,7 +22,7 @@ public class Category {
     private String name;
     @Column(name = "category_id")
     private Category categoryId;
-    @OneToMany
+    @ManyToMany
     @JoinColumn(name = "product_id")
     private Set<Product> products;
 }
