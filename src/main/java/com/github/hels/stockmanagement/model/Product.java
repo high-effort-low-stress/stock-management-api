@@ -32,5 +32,5 @@ public class Product {
     private LocalDateTime deletedAt;
     @ManyToMany
     @JoinColumn(name = "parent_id")
-    private Set<Category> entity;
+    private Set<Category> categories;
 }

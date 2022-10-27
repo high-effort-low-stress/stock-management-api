@@ -1,8 +1,9 @@
 package com.github.hels.stockmanagement.repository;
 
+import com.github.hels.stockmanagement.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IProductRepository extends JpaRepository<IProductRepository, Long> {
+public interface IProductRepository extends JpaRepository<Product, Long> {
 }

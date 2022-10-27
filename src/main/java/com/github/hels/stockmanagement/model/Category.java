@@ -20,8 +20,9 @@ public class Category {
     private String uuid;
     @Column(name = "name", nullable = false, length = 40)
     private String name;
-    @Column(name = "category_id")
-    private Category categoryId;
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Category parent;
     @ManyToMany
     @JoinColumn(name = "product_id")
     private Set<Product> products;
