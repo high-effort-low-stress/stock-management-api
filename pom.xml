@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.hels</groupId>
 	<artifactId>stock-management-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>stock-management-api</name>
 	<description>An API to serve a stock management web app</description>
 	<properties>
