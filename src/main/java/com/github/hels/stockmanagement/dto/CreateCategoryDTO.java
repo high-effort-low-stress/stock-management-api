@@ -1,6 +1,5 @@
 package com.github.hels.stockmanagement.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
