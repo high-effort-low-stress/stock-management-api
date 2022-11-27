@@ -15,7 +15,7 @@ CREATE TABLE `stock_management`.`product` (
 );
 
 CREATE TABLE `stock_management`.`order` (
-    `id`          BIGINT,
+    `id`          BIGINT NOT NULL AUTO_INCREMENT,
     `product_id`  BIGINT REFERENCES product(id),
     `uuid`        VARCHAR(36) NOT NULL UNIQUE,
     `purchase_price`       DECIMAL(6,2) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `stock_management`.`order` (
 );
 
 CREATE TABLE `stock_management`.`category` (
-    `id`          INT,
+    `id`          INT NOT NULL AUTO_INCREMENT,
     `uuid`        VARCHAR(36) NOT NULL UNIQUE,
     `name`       VARCHAR(40) NOT NULL,
     `parent_id`  int REFERENCES category(id),

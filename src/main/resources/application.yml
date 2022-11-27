@@ -8,3 +8,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jackson:
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: true
