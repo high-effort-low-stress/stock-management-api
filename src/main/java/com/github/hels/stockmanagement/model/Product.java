@@ -21,8 +21,8 @@ public class Product {
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "price", nullable = false)
-    private Double price;
+    @Column(name = "expected_resale_price", nullable = false)
+    private Double expectedResalePrice;
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     @Column(name = "updated_at", nullable = false)
@@ -30,6 +30,9 @@ public class Product {
     @Column(name = "deleted_at", nullable = false)
     private LocalDateTime deletedAt;
     @ManyToMany
-    @JoinColumn(name = "category_id")
+    @JoinTable(
+        name = "product_category",
+        joinColumns = @JoinColumn(name = "product_id"),
+        inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
 }
