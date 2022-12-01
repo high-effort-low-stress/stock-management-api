@@ -22,7 +22,8 @@ public class Category {
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private Category parent;
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany
+    @JoinColumn(name = "product_id")
     private Set<Product> products;
     @OneToMany(mappedBy = "parent")
     private Set<Category> children;

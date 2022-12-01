@@ -1,4 +1,4 @@
-package com.github.hels.stockmanagement.enums;
+package com.github.hels.stockmanagement.model.enums;
 
 public enum OrderStatus {
     ON_TRANSIT,

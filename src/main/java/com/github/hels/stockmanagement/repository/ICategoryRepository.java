@@ -11,6 +11,8 @@ import java.util.Optional;
 public interface ICategoryRepository extends JpaRepository<Category, Integer> {
 
     Optional<Category> findByUuid(String uuid);
+
     Optional<Category> findByNameAndParentUuid(String name, String parentUuid);
+
     Optional<Category> findByName(String name);
 }
