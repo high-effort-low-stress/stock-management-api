@@ -1,6 +1,6 @@
 package com.github.hels.stockmanagement.model;
 
-import com.github.hels.stockmanagement.enums.OrderStatus;
+import com.github.hels.stockmanagement.model.enums.OrderStatus;
 import lombok.Getter;
 import lombok.Setter;
 

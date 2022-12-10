@@ -11,7 +11,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class CreateCategoryServiceTest {
+class CreateCategoryServiceTest {
 
     ICategoryRepository repository = mock(ICategoryRepository.class);
     CreateCategoryService service = new CreateCategoryService(repository);

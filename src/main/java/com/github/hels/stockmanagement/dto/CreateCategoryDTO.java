@@ -3,10 +3,8 @@ package com.github.hels.stockmanagement.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,8 +15,7 @@ public class CreateCategoryDTO {
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
-    @NotNull
-    public static class Request{
+    public static class Request {
         @NotEmpty
         private String name;
         private String parentUuid;
@@ -29,7 +26,7 @@ public class CreateCategoryDTO {
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class Response{
+    public static class Response {
         private String uuid;
     }
 }
