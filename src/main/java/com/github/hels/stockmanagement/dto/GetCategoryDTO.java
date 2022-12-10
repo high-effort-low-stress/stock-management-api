@@ -2,17 +2,23 @@ package com.github.hels.stockmanagement.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class GetCategoryDTO {
-    private String uuid;
-    private String name;
-    private Set<GetCategoryDTO> children;
-
+    @ToString
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @NotNull
+    public static class Response {
+        private String uuid;
+        private String name;
+        private Set<Response> children;
+    }
 }
 

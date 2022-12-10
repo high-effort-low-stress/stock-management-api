@@ -1,6 +1,5 @@
 package com.github.hels.stockmanagement.service;
 
-import com.github.hels.stockmanagement.exceptions.ApiException;
 import com.github.hels.stockmanagement.model.Category;
 import com.github.hels.stockmanagement.repository.ICategoryRepository;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +12,7 @@ import java.util.Set;
 
 import static org.mockito.Mockito.*;
 
-public class GetCategoryServiceTest {
+class GetCategoryServiceTest {
 
     ICategoryRepository repository = mock(ICategoryRepository.class);
 
@@ -49,18 +48,12 @@ public class GetCategoryServiceTest {
     @Test
     @DisplayName("should not return category that does not exists in repository")
     void when_invalidCategory_then_dontReturnCategory() {
-        String categoryUuid = "expectedCategoryUuid";
+        Optional<Category> inexistentCategory = Optional.empty();
 
-        Category category = new Category();
+        when(repository.findByUuid(anyString())).thenReturn(inexistentCategory);
 
-        category.setUuid(categoryUuid);
+        Category result = service.execute("non-existent");
 
-        Optional<Category> optionalCategory = Optional.of(category);
-
-        when(repository.findByUuid(anyString())).thenReturn(optionalCategory);
-        //TODO: finish this test
-        ApiException ex = Assertions.assertThrows(ApiException.class, () -> service.execute(categoryUuid));
-
-        Assertions.assertEquals("Category not found", ex.getMessage());
+        Assertions.assertNull(result);
     }
 }

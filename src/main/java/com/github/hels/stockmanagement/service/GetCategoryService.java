@@ -1,6 +1,5 @@
 package com.github.hels.stockmanagement.service;
 
-import com.github.hels.stockmanagement.exceptions.ApiException;
 import com.github.hels.stockmanagement.model.Category;
 import com.github.hels.stockmanagement.repository.ICategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +13,6 @@ public class GetCategoryService {
     public Category execute(String uuid) {
         return repository
                 .findByUuid(uuid)
-                .orElseThrow(() -> new ApiException("Category not found"));
+                .orElse(null);
     }
 }

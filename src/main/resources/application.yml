@@ -12,3 +12,9 @@ spring:
   jackson:
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: true
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        use-model-v3: false
