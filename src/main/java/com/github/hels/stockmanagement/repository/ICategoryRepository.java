@@ -2,13 +2,14 @@ package com.github.hels.stockmanagement.repository;
 
 import com.github.hels.stockmanagement.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 
 @Repository
-public interface ICategoryRepository extends JpaRepository<Category, Integer> {
+public interface ICategoryRepository extends JpaRepository<Category, Integer>, JpaSpecificationExecutor<Category> {
 
     Optional<Category> findByUuid(String uuid);
 

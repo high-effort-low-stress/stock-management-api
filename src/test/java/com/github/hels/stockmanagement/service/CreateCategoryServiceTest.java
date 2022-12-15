@@ -3,10 +3,13 @@ package com.github.hels.stockmanagement.service;
 import com.github.hels.stockmanagement.exceptions.ApiException;
 import com.github.hels.stockmanagement.model.Category;
 import com.github.hels.stockmanagement.repository.ICategoryRepository;
+import com.github.hels.stockmanagement.repository.input.ListCategoryInput;
+import com.github.hels.stockmanagement.repository.specification.ListCategorySpecification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
@@ -79,7 +82,7 @@ class CreateCategoryServiceTest {
         duplicatedCategory.setName("name");
         duplicatedCategory.setParent(parentCategory);
 
-        Optional<Category> optionalDuplicatedCategory = Optional.of(duplicatedCategory);
+        List<Category> listDuplicatedCategory = List.of(duplicatedCategory);
         Optional<Category> optionalParentCategory = Optional.of(parentCategory);
 
         Category expectedCategory = new Category();
@@ -87,8 +90,8 @@ class CreateCategoryServiceTest {
         expectedCategory.setParent(parentCategory);
 
         when(repository.findByUuid(any(String.class))).thenReturn(optionalParentCategory);
-        when(repository.findByNameAndParentUuid(anyString(),anyString()))
-                .thenReturn(optionalDuplicatedCategory);
+        when(repository.findAll(any(ListCategorySpecification.class)))
+                .thenReturn(listDuplicatedCategory);
 
         ApiException ex = Assertions.assertThrows(ApiException.class, () -> {
             service.execute(categoryName, parentUuid);
