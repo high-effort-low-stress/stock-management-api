@@ -1,6 +1,7 @@
 package com.github.hels.stockmanagement.controller;
 
 import com.github.hels.stockmanagement.controller.mappers.ProductMapper;
+import com.github.hels.stockmanagement.docs.CreateProductApi;
 import com.github.hels.stockmanagement.dto.CreateProductDTO;
 import com.github.hels.stockmanagement.model.Product;
 import com.github.hels.stockmanagement.service.CreateProductService;
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 public class ProductController {
     private final CreateProductService createProductService;
     @PostMapping
+    @CreateProductApi
     public CreateProductDTO.Response product(
             @Valid @RequestBody CreateProductDTO.Request requestBody
     ) {
