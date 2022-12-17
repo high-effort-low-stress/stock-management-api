@@ -28,3 +28,5 @@ public class Category {
     @OneToMany(mappedBy = "parent")
     private Set<Category> children;
 }
+
+

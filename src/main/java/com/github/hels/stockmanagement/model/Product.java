@@ -21,8 +21,8 @@ public class Product {
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "expected_resale_price", nullable = false)
-    private Double expectedResalePrice;
+    @Column(name = "quantity")
+    private Integer quantity;
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     @Column(name = "updated_at", nullable = false)
