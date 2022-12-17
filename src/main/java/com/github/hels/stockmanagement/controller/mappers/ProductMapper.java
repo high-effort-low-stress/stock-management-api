@@ -6,17 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductMapper {
-    public CreateProductDTO.Request requestToDTO (Product p) {
-        if (p == null)
-            return null;
-
-        CreateProductDTO.Request dto = new CreateProductDTO.Request();
-
-        dto.setName(p.getName());
-        dto.setDescription(p.getDescription());
-        dto.setCategoryUuid(p.getCategories().toString());
-        return dto;
-    }
     public CreateProductDTO.Response responseToDTO (Product p) {
         if (p == null)
             return null;
