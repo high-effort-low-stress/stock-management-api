@@ -14,7 +14,6 @@ public class CreateProductDTO {
     public static class Request {
         private String name;
         private String description;
-        private Integer quantity;
         private String categoryUuid;
 
 

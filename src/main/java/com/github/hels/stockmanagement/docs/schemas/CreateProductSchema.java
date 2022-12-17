@@ -14,8 +14,6 @@ public class CreateProductSchema {
         private String name;
         @Schema(description = "Descrição do Produto", example = "Processador AMD Ryzen 5 5600")
         private String description;
-        @Schema(description = "Quantas unidades do produto serão cadastradas", example = "1")
-        private Integer quantity;
         @Schema(description = "Uuid da categoria ao qual o produto pertence", example = "d08ca46a-f391-49e6-9226-d4beb5f187b1")
         private String categoryUuid;
 

@@ -27,10 +27,9 @@ public class ProductController {
     ) {
         String name = requestBody.getName();
         String description = requestBody.getDescription();
-        Integer quantity = requestBody.getQuantity();
         String categoryUuid = requestBody.getCategoryUuid();
 
-        Product product = createProductService.execute(name, description, quantity, categoryUuid);
+        Product product = createProductService.execute(name, description, categoryUuid);
 
         return new ProductMapper().responseToDTO(product);
     }

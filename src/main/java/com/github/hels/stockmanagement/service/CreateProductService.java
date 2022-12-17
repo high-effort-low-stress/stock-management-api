@@ -15,13 +15,12 @@ import java.util.*;
 public class CreateProductService {
     private final IProductRepository repository;
     private final ICategoryRepository category;
-    public Product execute(String name, String description,Integer quantity, String categoryUuid) {
+    public Product execute(String name, String description, String categoryUuid) {
         Product product = new Product();
 
         validateDuplication(name);
         product.setName(name);
         product.setDescription(description);
-        product.setQuantity(quantity);
         product.setUuid(UUID.randomUUID().toString());
         product.setCategories(getCategory(categoryUuid));
 

@@ -35,14 +35,13 @@ public class CreateProductServiceTest {
         Product product = new Product();
         product.setName("name");
         product.setDescription("description");
-        product.setQuantity(1);
         product.setCategories(Set.of(category));
         product.setUuid("uuid");
 
         when(mockCategoryRepository.findByUuid(anyString())).thenReturn(optionalCategory);
         when(mockProductRepository.save(any(Product.class))).thenReturn(product);
 
-        Product result = service.execute("name", "description", 1, "categoryUuid");
+        Product result = service.execute("name", "description",  "categoryUuid");
 
         Assertions.assertEquals("uuid", result.getUuid());
     }
@@ -59,7 +58,6 @@ public class CreateProductServiceTest {
         Product product = new Product();
         product.setName("name");
         product.setDescription("description");
-        product.setQuantity(1);
         product.setCategories(Set.of(category));
         product.setUuid("uuid");
 
@@ -67,7 +65,7 @@ public class CreateProductServiceTest {
         when(mockProductRepository.save(any(Product.class))).thenReturn(product);
 
         ApiException ex = Assertions.assertThrows(ApiException.class, () -> {
-            service.execute("name", "description", 1, "categoryUuid");
+            service.execute("name", "description",  "categoryUuid");
         });
 
         Assertions.assertEquals("Category does not exists", ex.getMessage());
@@ -78,7 +76,6 @@ public class CreateProductServiceTest {
     void when_duplicatedProductName_then_dontCreateProduct() {
         String productName = "expectedProductName";
         String productDescription = "description";
-        Integer productQuantity = 1;
 
         Category category = new Category();
         category.setName("categoryName");
@@ -93,14 +90,13 @@ public class CreateProductServiceTest {
         Product ExpectedProduct = new Product();
         ExpectedProduct.setName(productName);
         ExpectedProduct.setDescription(productDescription);
-        ExpectedProduct.setQuantity(productQuantity);
         ExpectedProduct.setCategories(Set.of(category));
 
         when(mockCategoryRepository.findByUuid(anyString())).thenReturn(optionalCategory);
         when(mockProductRepository.findByName(anyString())).thenReturn(optionalDuplicatedProduct);
 
         ApiException ex = Assertions.assertThrows(ApiException.class, () -> {
-            service.execute("name", "description", 1, "categoryUuid");
+            service.execute("name", "description",  "categoryUuid");
         });
 
         Assertions.assertEquals("A product with same name already exists", ex.getMessage());
