@@ -14,7 +14,6 @@ public class ProductMapper {
 
         dto.setName(p.getName());
         dto.setDescription(p.getDescription());
-        dto.setQuantity(p.getQuantity());
         dto.setCategoryUuid(p.getCategories().toString());
         return dto;
     }
