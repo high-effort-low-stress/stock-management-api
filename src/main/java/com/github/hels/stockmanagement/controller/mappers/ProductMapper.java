@@ -31,6 +31,7 @@ public class ProductMapper {
         dto.setDescription(p.getDescription());
         dto.setCategory(p.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
         dto.setQuantity(p.getQuantity());
+        dto.setCreatedAt(p.getCreatedAt());
 
         return dto;
     }

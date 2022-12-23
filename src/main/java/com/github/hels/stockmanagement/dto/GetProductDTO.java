@@ -3,6 +3,7 @@ package com.github.hels.stockmanagement.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
@@ -21,5 +22,6 @@ public class GetProductDTO {
         private String description;
         private Integer quantity;
         private Set<String> category;
+        private LocalDateTime createdAt;
     }
 }
