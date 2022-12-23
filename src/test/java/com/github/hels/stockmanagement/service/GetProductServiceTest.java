@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -22,6 +23,8 @@ class GetProductServiceTest {
      @Test
      @DisplayName("Should return product")
      void when_getProduct_then_returnProduct() {
+          LocalDateTime createdAt = LocalDateTime.now();
+
           Category category = new Category();
           category.setName("category name");
           category.setUuid("category uuid");
@@ -35,6 +38,7 @@ class GetProductServiceTest {
           product.setDescription("description");
           product.setCategories(categories);
           product.setQuantity(1);
+          product.setCreatedAt(createdAt);
 
           Optional<Product> optionalProduct = Optional.of(product);
 
@@ -47,6 +51,7 @@ class GetProductServiceTest {
           Assertions.assertEquals("description", result.getDescription());
           Assertions.assertEquals(1, result.getQuantity());
           Assertions.assertEquals("category name", result.getCategories().stream().toList().get(0).getName());
+          Assertions.assertTrue(createdAt.isEqual(result.getCreatedAt()));
      }
      @Test
      @DisplayName("Should not return Product that does not exists in repository")
