@@ -51,7 +51,7 @@ class GetProductServiceTest {
           Assertions.assertEquals("description", result.getDescription());
           Assertions.assertEquals(1, result.getQuantity());
           Assertions.assertEquals("category name", result.getCategories().stream().toList().get(0).getName());
-          Assertions.assertTrue(createdAt.isEqual(result.getCreatedAt()));
+          Assertions.assertEquals(createdAt, result.getCreatedAt());
      }
      @Test
      @DisplayName("Should not return Product that does not exists in repository")
