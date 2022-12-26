@@ -21,7 +21,7 @@ public class GetProductDTO {
         private String name;
         private String description;
         private Integer quantity;
-        private Set<String> category;
         private LocalDateTime createdAt;
+        private Set<String> category;
     }
 }
