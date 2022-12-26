@@ -2,6 +2,8 @@ package com.github.hels.stockmanagement.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -22,12 +24,14 @@ public class Product {
     @Column(name = "description", nullable = false)
     private String description;
     @Column(name = "quantity")
-    private Integer quantity;
-    @Column(name = "created_at", nullable = false)
+    private Integer quantity = 0;
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+    @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
-    @Column(name = "deleted_at", nullable = false)
+    @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
     @ManyToMany
     @JoinTable(
