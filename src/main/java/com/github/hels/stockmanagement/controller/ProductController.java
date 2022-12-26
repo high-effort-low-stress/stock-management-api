@@ -35,16 +35,16 @@ public class ProductController {
 
         Product product = createProductService.execute(name, description, categoryUuid);
 
-        return new ProductMapper().createProductToDTO(product);
+        return new ProductMapper().mapToCreateProductDto(product);
     }
     @GetProductApi
     @GetMapping("/{productUuid}")
     public GetProductDTO.Response getProduct (
-            @Valid @PathVariable String productUuid, HttpServletResponse response) {
+            @PathVariable String productUuid, HttpServletResponse response) {
         Product product = getProductService.execute(productUuid);
         if (product == null) {
             response.setStatus(HttpStatus.NO_CONTENT.value());
         }
-        return productMapper.getProductToDTO(product);
+        return productMapper.mapToGetProductDto(product);
     }
 }

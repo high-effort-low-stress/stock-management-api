@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class ProductMapper {
-    public CreateProductDTO.Response createProductToDTO(Product p) {
+    public CreateProductDTO.Response mapToCreateProductDto(Product p) {
         if (p == null)
             return null;
 
@@ -21,7 +21,7 @@ public class ProductMapper {
         return dto;
     }
 
-    public GetProductDTO.Response getProductToDTO(Product p) {
+    public GetProductDTO.Response mapToGetProductDto(Product p) {
         if (p == null)
             return null;
         GetProductDTO.Response dto = new GetProductDTO.Response();
