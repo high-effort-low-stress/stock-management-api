@@ -19,11 +19,11 @@ public class GetProductSchema {
         private String name;
         @Schema(description = "Descrição técnica do produto", example = "Processador am4 com 6 nucleos e 12 threads")
         private String description;
-        @Schema(description = "quantidade disponível do produto", example = "1")
+        @Schema(description = "Quantidade disponível do produto", example = "1")
         private Integer quantity;
         @Schema(description = "Categorias e/ou subcategorias do protudo")
         private Set<Category> categories;
-        @Schema(description = "data de registro do produto", example = "0000-00-00T00:00:00")
+        @Schema(description = "Data de registro do produto", example = "0000-00-00T00:00:00")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
         private LocalDateTime createdAt;
 
@@ -31,7 +31,7 @@ public class GetProductSchema {
         @Setter
         @Schema(name = "GetProductResponseCategories")
         public static class Category {
-            @Schema(description = "Nome das categorias e/ou sbucategorias", example = "AMD")
+            @Schema(description = "Nome da categoria", example = "AMD")
             private String category;
         }
     }

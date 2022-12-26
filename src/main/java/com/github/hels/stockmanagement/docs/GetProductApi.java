@@ -18,7 +18,7 @@ import java.lang.annotation.*;
 @ApiResponses(value = {
         @ApiResponse(
                 responseCode = "200",
-                description = "Produto consultada",
+                description = "Produto consultado",
                 content = @Content(
                         schema = @Schema(implementation = GetProductSchema.Response.class),
                         mediaType = MediaType.APPLICATION_JSON_VALUE
